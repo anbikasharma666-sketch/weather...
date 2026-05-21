@@ -1,0 +1,598 @@
+/* =========================
+   GLOBAL
+========================= */
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#020617,#071122,#0f172a,#111827,#020617);
+color:#f8fafc;
+overflow-x:hidden;
+transition:.4s;
+
+/* PAGE LOAD */
+animation:pageFade 1.2s ease;
+}
+
+/* PAGE ANIMATION */
+
+@keyframes pageFade{
+0%{
+opacity:0;
+transform:scale(1.03);
+}
+100%{
+opacity:1;
+transform:scale(1);
+}
+}
+
+
+body::before{
+content:"";
+position:fixed;
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+
+background:
+linear-gradient(
+115deg,
+transparent 20%,
+rgba(56,189,248,.05) 35%,
+rgba(56,189,248,.15) 45%,
+rgba(255,255,255,.08) 50%,
+rgba(14,165,233,.12) 55%,
+transparent 70%
+);
+
+animation:lightMove 8s linear infinite;
+
+z-index:-2;
+pointer-events:none;
+filter:blur(10px);
+}
+
+
+/* GLOW LAYER */
+
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:
+radial-gradient(circle at 30% 20%,rgba(56,189,248,.12),transparent 30%),
+radial-gradient(circle at 80% 70%,rgba(14,165,233,.10),transparent 35%);
+
+animation:glowMove 6s ease-in-out infinite alternate;
+
+z-index:-3;
+pointer-events:none;
+}
+
+/* MOVING LIGHT */
+
+@keyframes lightMove{
+
+0%{
+transform:
+translateX(-20%)
+translateY(-10%)
+rotate(0deg);
+}
+
+100%{
+transform:
+translateX(20%)
+translateY(10%)
+rotate(360deg);
+}
+
+}
+
+/* GLOW EFFECT */
+
+@keyframes glowMove{
+
+0%{
+transform:scale(1);
+opacity:.6;
+}
+
+100%{
+transform:scale(1.1);
+opacity:1;
+}
+
+}
+
+/* ================= GLOBAL NAVBAR (ALL PAGES SAME) ================= */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+background:rgba(15,23,42,.45);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.06);
+z-index:1000;
+box-sizing:border-box;
+}
+
+/* LOGO */
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:24px;
+font-weight:700;
+color:#38bdf8;
+}
+
+/* LINKS */
+.nav-links{
+display:flex;
+align-items:center;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:15px;
+font-weight:500;
+position:relative;
+transition:.3s;
+}
+
+.nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
+background:#38bdf8;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#38bdf8;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+/* THEME BUTTON */
+.theme-toggle{
+width:45px;
+height:45px;
+border:none;
+border-radius:50%;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+.theme-toggle:hover{
+transform:scale(1.08);
+background:rgba(255,255,255,.15);
+}
+
+/* ================= DARK / LIGHT MODE ================= */
+
+.light-mode nav{
+background:rgba(255,255,255,.6);
+border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.light-mode .nav-links a{
+color:#0f172a;
+}
+
+.light-mode .theme-toggle{
+background:rgba(15,23,42,.08);
+color:#0f172a;
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+.light-mode{
+background:linear-gradient(135deg,#dbeafe,#f8fafc,#e0f2fe);
+color:#0f172a;
+}
+
+.light-mode .hero{
+background:
+linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.6)),
+url("https://images.unsplash.com/photo-1504608524841-42fe6f032b4b");
+background-size:cover;
+background-position:center;
+}
+
+.light-mode .weather-card,
+.light-mode .feature-card,
+.light-mode .chat-popup,
+.light-mode .radar-popup{
+background:rgba(255,255,255,.55);
+color:#0f172a;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+padding:20px;
+
+background:
+linear-gradient(rgba(2,6,23,.85),rgba(15,23,42,.9)),
+url("https://images.unsplash.com/photo-1504608524841-42fe6f032b4b");
+
+background-size:cover;
+background-position:center;
+}
+
+.hero-content h1{
+font-size:64px;
+max-width:850px;
+margin:auto;
+line-height:1.2;
+}
+
+.typing{
+margin-top:18px;
+font-size:18px;
+color:#7dd3fc;
+letter-spacing:2px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+margin-top:35px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.search-box input{
+width:340px;
+padding:18px 22px;
+
+border:none;
+outline:none;
+
+border-radius:40px 0 0 40px;
+
+background:rgba(255,255,255,.08);
+
+color:white;
+
+font-size:16px;
+}
+
+.search-box button{
+padding:18px 24px;
+
+border:none;
+cursor:pointer;
+
+font-size:16px;
+
+color:white;
+
+border-radius:0 40px 40px 0;
+
+background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+
+transition:.3s;
+}
+
+.search-box button:hover{
+transform:scale(1.05);
+}
+
+/* =========================
+   WEATHER CARD
+========================= */
+
+.weather-card{
+margin:40px auto 0;
+
+max-width:430px;
+
+padding:35px;
+
+border-radius:30px;
+
+background:rgba(15,23,42,.65);
+
+backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.06);
+
+box-shadow:0 10px 40px rgba(0,0,0,.45);
+}
+
+.weather-card h2{
+font-size:30px;
+margin-bottom:15px;
+}
+.weather-container {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:30px;
+
+padding:90px 60px;
+}
+
+.feature-card{
+padding:35px;
+
+text-align:center;
+
+border-radius:25px;
+
+background:rgba(15,23,42,.55);
+
+border:1px solid rgba(255,255,255,.05);
+
+transition:.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+}
+
+.feature-card i{
+font-size:42px;
+color:#38bdf8;
+margin-bottom:15px;
+}
+
+/* =========================
+   FLOAT BUTTONS
+========================= */
+
+.chatbot-icon,
+.radar-btn{
+position:fixed;
+right:20px;
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+cursor:pointer;
+
+z-index:999;
+
+font-size:22px;
+
+color:white;
+
+transition:.3s;
+}
+
+.chatbot-icon{
+bottom:20px;
+
+background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+}
+
+.radar-btn{
+bottom:95px;
+
+background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+.chatbot-icon:hover,
+.radar-btn:hover{
+transform:scale(1.1);
+}
+
+/* =========================
+   POPUPS
+========================= */
+
+.chat-popup,
+.radar-popup{
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:90%;
+max-width:500px;
+
+display:none;
+flex-direction:column;
+
+overflow:hidden;
+
+z-index:1000;
+
+border-radius:25px;
+
+background:rgba(15,23,42,.95);
+
+backdrop-filter:blur(25px);
+}
+
+.radar-popup{
+height:75%;
+max-width:950px;
+}
+
+.chat-header,
+.radar-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 20px;
+
+font-weight:600;
+
+background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+}
+
+.radar-header{
+background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+.chat-header button,
+.radar-header button{
+background:none;
+border:none;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+}
+
+/* CHAT */
+
+.chat-box{
+height:250px;
+overflow-y:auto;
+padding:15px;
+}
+
+.bot-message{
+padding:12px 15px;
+border-radius:15px;
+background:#1e293b;
+}
+
+/* INPUT */
+
+.chat-input{
+display:flex;
+}
+
+.chat-input input{
+flex:1;
+padding:14px;
+border:none;
+outline:none;
+}
+
+.chat-input button{
+padding:14px 20px;
+border:none;
+background:#38bdf8;
+color:white;
+cursor:pointer;
+}
+
+/* RADAR */
+
+.radar-popup iframe{
+width:100%;
+height:100%;
+border:none;
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+nav{
+padding:16px 20px;
+}
+
+.logo{
+font-size:20px;
+}
+
+.nav-links{
+gap:15px;
+}
+
+.nav-links a{
+font-size:14px;
+}
+
+.hero-content h1{
+font-size:38px;
+}
+
+.search-box input{
+width:220px;
+}
+
+.features{
+padding:50px 20px;
+}
+
+.card {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+}

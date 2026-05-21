@@ -1,0 +1,377 @@
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#020617 0%,#071122 25%,#0f172a 50%,#111827 75%,#020617 100%);
+color:#f8fafc;
+overflow-x:hidden;
+min-height:100vh;
+transition:.4s ease;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 60px;
+
+background:rgba(15,23,42,.45);
+
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid rgba(255,255,255,.06);
+
+z-index:1000;
+
+box-sizing:border-box;
+}
+
+/* LOGO */
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+
+font-size:24px;
+font-weight:700;
+
+color:#38bdf8;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+
+color:white;
+
+font-size:15px;
+font-weight:500;
+
+position:relative;
+
+transition:.3s;
+}
+
+/* HOVER EFFECT */
+
+.nav-links a::after{
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:2px;
+
+background:#38bdf8;
+
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#38bdf8;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+/* THEME BUTTON */
+
+.theme-toggle{
+width:45px;
+height:45px;
+
+border:none;
+border-radius:50%;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(10px);
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.3s;
+}
+
+.theme-toggle:hover{
+transform:scale(1.08);
+
+background:rgba(255,255,255,.15);
+}
+
+/* LIGHT MODE */
+
+.light-mode nav{
+background:rgba(255,255,255,.6);
+
+border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.light-mode .nav-links a{
+color:#0f172a;
+}
+
+.light-mode .theme-toggle{
+background:rgba(15,23,42,.08);
+
+color:#0f172a;
+}
+/* LIGHT MODE */
+
+.light-mode{
+background:linear-gradient(135deg,#f8fafc 0%,#e0f2fe 25%,#dbeafe 50%,#f1f5f9 75%,#ffffff 100%);
+color:#0f172a;
+}
+
+.light-mode .forecast-content h1{
+color:#0f172a;
+text-shadow:none;
+}
+
+.light-mode .forecast-content p{
+color:#334155;
+}
+
+.light-mode .today-card,
+.light-mode .hour-card,
+.light-mode .week-card{
+background:rgba(255,255,255,.6);
+color:#0f172a;
+border:1px solid rgba(0,0,0,.08);
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+nav{
+padding:16px 20px;
+}
+
+.logo{
+font-size:20px;
+}
+
+.nav-links{
+gap:15px;
+}
+
+.nav-links a{
+font-size:14px;
+}
+
+.theme-toggle{
+width:40px;
+height:40px;
+}
+
+}
+
+/* HERO */
+
+.forecast-hero{
+padding:150px 20px 80px;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.forecast-hero::before{
+content:"";
+position:absolute;
+top:-200px;
+right:-150px;
+width:600px;
+height:600px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(56,189,248,.18),transparent 70%);
+filter:blur(60px);
+}
+
+.forecast-content{
+position:relative;
+z-index:2;
+}
+
+.forecast-content h1{
+font-size:65px;
+font-weight:700;
+line-height:1.2;
+margin-bottom:15px;
+text-shadow:0 0 20px rgba(56,189,248,.2),0 5px 20px rgba(0,0,0,.5);
+}
+
+.forecast-content p{
+font-size:18px;
+color:#cbd5e1;
+}
+
+/* SECTIONS */
+
+.today-section,
+.hourly-section,
+.weekly-section{
+padding:50px 60px;
+}
+
+.today-section h2,
+.hourly-section h2,
+.weekly-section h2{
+font-size:34px;
+margin-bottom:35px;
+}
+
+/* CARDS */
+
+.today-cards,
+.weekly-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.today-card,
+.week-card,
+.hour-card{
+padding:30px;
+border-radius:28px;
+background:rgba(15,23,42,.6);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.06);
+box-shadow:0 10px 35px rgba(0,0,0,.35);
+text-align:center;
+transition:.35s;
+}
+
+.today-card:hover,
+.week-card:hover,
+.hour-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 25px rgba(56,189,248,.12);
+}
+
+.today-card i,
+.week-card i,
+.hour-card i{
+font-size:40px;
+margin:18px 0;
+color:#38bdf8;
+}
+
+/* HOURLY */
+
+.hourly-container{
+display:flex;
+gap:22px;
+overflow-x:auto;
+padding-bottom:15px;
+}
+
+.hourly-container::-webkit-scrollbar{
+height:8px;
+}
+
+.hourly-container::-webkit-scrollbar-thumb{
+background:#38bdf8;
+border-radius:20px;
+}
+
+.hour-card{
+min-width:150px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+nav{
+padding:16px 20px;
+}
+
+.logo{
+font-size:20px;
+}
+
+.nav-links{
+gap:15px;
+}
+
+.nav-links a{
+font-size:14px;
+}
+
+.forecast-content h1{
+font-size:40px;
+}
+
+.forecast-content p{
+font-size:15px;
+}
+
+.today-section,
+.hourly-section,
+.weekly-section{
+padding:35px 20px;
+}
+
+.today-section h2,
+.hourly-section h2,
+.weekly-section h2{
+font-size:28px;
+}
+
+.today-card,
+.week-card,
+.hour-card{
+padding:24px;
+}
+
+.hour-card{
+min-width:130px;
+}
+
+.theme-toggle{
+width:42px;
+height:42px;
+top:15px;
+right:15px;
+}
+
+}

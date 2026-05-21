@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WeatherX Pro</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script defer src="script.js"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+<!-- NAVBAR -->
+
+<nav>
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        <i class="fa-solid fa-cloud"></i>
+
+        WeatherX Pro
+
+    </div>
+
+    <!-- NAV LINKS -->
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="forecast.html">Forecast</a>
+
+        <a href="news.html">News</a>
+
+        <a href="about.html">About</a>
+
+    </div>
+
+    <!-- THEME BUTTON -->
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+
+        <i class="fa-solid fa-moon"></i>
+
+    </button>
+
+</nav>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Next Generation Weather Forecasting
+        </h1>
+
+        <p class="typing">
+            Live Weather • AI Forecast • Radar Tracking
+        </p>
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+            type="text"
+            id="city"
+            placeholder="Search your city...">
+
+            <button onclick="getWeather()">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+        </div>
+
+        <!-- WEATHER CARD -->
+
+        <div class="weather-card" id="weatherResult">
+
+            <h2>Weather Details</h2>
+
+            <p>
+                Search any city to get live weather.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+    <div class="feature-card">
+
+        <i class="fa-solid fa-temperature-high"></i>
+
+        <h2>Temperature</h2>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i class="fa-solid fa-cloud-rain"></i>
+
+        <h2>Rain Forecast</h2>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i class="fa-solid fa-wind"></i>
+
+        <h2>Wind Analysis</h2>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i class="fa-solid fa-earth-asia"></i>
+
+        <h2>Global Weather</h2>
+
+    </div>
+
+</section>
+
+<!-- RADAR BUTTON -->
+
+<div class="radar-btn" onclick="toggleRadar()">
+
+    <i class="fa-solid fa-satellite-dish"></i>
+
+</div>
+
+<!-- RADAR POPUP -->
+
+<div class="radar-popup" id="radarPopup">
+
+    <div class="radar-header">
+
+        <span>Live Radar</span>
+
+        <button onclick="toggleRadar()">✖</button>
+
+    </div>
+
+    <iframe
+    src="https://embed.windy.com/embed2.html?lat=28.6139&lon=77.2090&zoom=5&overlay=rain"
+    frameborder="0">
+    </iframe>
+
+</div>
+
+<!-- CHATBOT ICON -->
+
+<div class="chatbot-icon" onclick="toggleChat()">
+
+    <i class="fa-solid fa-message"></i>
+
+</div>
+
+<!-- CHAT POPUP -->
+
+<div class="chat-popup" id="chatPopup">
+
+    <div class="chat-header">
+
+        <span>Weather AI</span>
+
+        <button onclick="toggleChat()">✖</button>
+
+    </div>
+
+    <div class="chat-box" id="chatBox">
+
+        <div class="bot-message">
+
+            Hello 👋 Ask me anything about weather.
+
+        </div>
+
+    </div>
+
+    <div class="chat-input">
+
+        <input
+        type="text"
+        id="userInput"
+        placeholder="Ask weather question...">
+
+        <button onclick="sendMessage()">
+
+            Send
+
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+</html>

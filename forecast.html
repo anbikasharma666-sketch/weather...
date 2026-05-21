@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Forecast | WeatherX Pro</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="forecast.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script defer src="script.js"></script>
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <!-- LOGO -->
+
+    <div class="logo">
+        <i class="fa-solid fa-cloud"></i>
+        WeatherX Pro
+    </div>
+
+    <!-- NAV LINKS -->
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="forecast.html">Forecast</a>
+
+        <a href="news.html">News</a>
+
+        <a href="about.html">About</a>
+
+    </div>
+
+    <!-- THEME BUTTON -->
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+
+        <i class="fa-solid fa-moon"></i>
+
+    </button>
+
+</nav>
+<!-- FORECAST HERO -->
+
+<section class="forecast-hero">
+
+<div class="forecast-content">
+
+<h1>Advanced Weather Forecast</h1>
+
+<p>
+Track upcoming weather conditions with
+hourly and weekly forecasts.
+</p>
+
+</div>
+
+</section>
+
+<!-- TODAY HIGHLIGHTS -->
+
+<section class="today-section">
+
+<h2>Today's Highlights</h2>
+
+<div class="today-cards">
+
+<div class="today-card">
+<i class="fa-solid fa-temperature-high"></i>
+<h3>29°C</h3>
+<p>Feels Like</p>
+</div>
+
+<div class="today-card">
+<i class="fa-solid fa-wind"></i>
+<h3>12 km/h</h3>
+<p>Wind Speed</p>
+</div>
+
+<div class="today-card">
+<i class="fa-solid fa-cloud-rain"></i>
+<h3>70%</h3>
+<p>Rain Chance</p>
+</div>
+
+<div class="today-card">
+<i class="fa-solid fa-droplet"></i>
+<h3>62%</h3>
+<p>Humidity</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- HOURLY FORECAST -->
+
+<section class="hourly-section">
+
+<h2>Hourly Forecast</h2>
+
+<div class="hourly-container">
+
+<div class="hour-card">
+<p>Now</p>
+<i class="fa-solid fa-sun"></i>
+<h3>29°C</h3>
+</div>
+
+<div class="hour-card">
+<p>1 PM</p>
+<i class="fa-solid fa-cloud-sun"></i>
+<h3>30°C</h3>
+</div>
+
+<div class="hour-card">
+<p>2 PM</p>
+<i class="fa-solid fa-cloud"></i>
+<h3>28°C</h3>
+</div>
+
+<div class="hour-card">
+<p>3 PM</p>
+<i class="fa-solid fa-cloud-rain"></i>
+<h3>26°C</h3>
+</div>
+
+<div class="hour-card">
+<p>4 PM</p>
+<i class="fa-solid fa-cloud-showers-heavy"></i>
+<h3>25°C</h3>
+</div>
+
+</div>
+
+</section>
+
+<!-- WEEKLY FORECAST -->
+
+<section class="weekly-section">
+
+<h2>7 Day Forecast</h2>
+
+<div class="weekly-container">
+
+<div class="week-card">
+<p>Monday</p>
+<i class="fa-solid fa-cloud-sun"></i>
+<h3>30° / 22°</h3>
+</div>
+
+<div class="week-card">
+<p>Tuesday</p>
+<i class="fa-solid fa-cloud-rain"></i>
+<h3>28° / 21°</h3>
+</div>
+
+<div class="week-card">
+<p>Wednesday</p>
+<i class="fa-solid fa-sun"></i>
+<h3>32° / 23°</h3>
+</div>
+
+<div class="week-card">
+<p>Thursday</p>
+<i class="fa-solid fa-cloud"></i>
+<h3>27° / 20°</h3>
+</div>
+
+<div class="week-card">
+<p>Friday</p>
+<i class="fa-solid fa-cloud-showers-heavy"></i>
+<h3>25° / 19°</h3>
+</div>
+
+<div class="week-card">
+<p>Saturday</p>
+<i class="fa-solid fa-cloud-sun"></i>
+<h3>29° / 21°</h3>
+</div>
+
+<div class="week-card">
+<p>Sunday</p>
+<i class="fa-solid fa-sun"></i>
+<h3>33° / 24°</h3>
+</div>
+
+</div>
+
+
+
+</section>
+
+</body>
+</html>
